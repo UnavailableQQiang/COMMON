@@ -1,0 +1,1 @@
+xjc -p com.qqiang.rail OTA_RailBookRQ.xsd -d C:/Users/zhaoruiqiang/Desktop/OTA2015B_PublicReview/LALA

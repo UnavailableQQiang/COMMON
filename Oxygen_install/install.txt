@@ -1,0 +1,2 @@
+1. Copy oxygen.jar to %PROGRAM_DIR%\lib folder
+2. type 'java -jar keygen.jar' to get license info
