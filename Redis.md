@@ -20,12 +20,10 @@ Remote Dictionary Service
 
 1.2.1 Redis的列表相当于Java语言里的LinkedList，插入和删除的时间复杂度为O(1)，索引定位的时间复杂度为O(n)。
 
-1.2.2 当列表弹出了最后一个元素之后，该数据结构自动被删除，内存被回收。
-
-1.2.3
+1.2.2
 ![image](https://github.com/user-attachments/assets/32cb451a-0d31-4e58-891a-8b659bc4ff53)
 
-1.2.4 ziplist即压缩列表，将所有的元素紧挨着一起存储，分配的是一块连续的内存。当数据量比较多的时候才会改成quicklist。因为普通的链表需要的附加指针空间太大，会比较浪费空间，而且会加重内存的碎片化。Redis将链表和ziplist结合起来组成了quicklist。将多个ziplist使用双向指针串起来使用，既满足了快速的插入删除性能，又不会出现太大的空间冗余。
+1.2.3 ziplist即压缩列表，将所有的元素紧挨着一起存储，分配的是一块连续的内存。当数据量比较多的时候才会改成quicklist。因为普通的链表需要的附加指针空间太大，会比较浪费空间，而且会加重内存的碎片化。Redis将链表和ziplist结合起来组成了quicklist。将多个ziplist使用双向指针串起来使用，既满足了快速的插入删除性能，又不会出现太大的空间冗余。
 
 ### 1.3 hash 哈希
 
@@ -44,3 +42,27 @@ Remote Dictionary Service
 1.4.1 Redis的集合相当于Java语言里面的HashSet，它内部的键值对是无序的唯一的。它的内部实现相当于一个特殊的字典，字典中的所有的value都是一个值NULL。
 
 ### 1.5 zset 有序集合
+
+1.5.1 类似于Java的SortedSet和HashMap的结合体，一方面他是一个set，保证了内部value的唯一性，另一方面它可以给每个value赋予一个score，代表这个value的排序权重。它的内部实现用的是跳跃列表的数据结构。
+
+1.5.2
+![image](https://github.com/user-attachments/assets/067d33c5-1296-4f83-99f4-889e0af157e3)
+
+### 1.6 容器性数据结构的通用规则
+
+1.6.1 create if not exists
+
+1.6.2 drop if no elements
+
+## 2 应用
+
+### 2.1 分布式锁
+
+2.2 延时队列
+2.3 位图
+2.4 HyperLogLog
+2.5 布隆过滤器
+2.6 简单限流
+2.7 漏斗限流
+2.8 GeoHash
+2.9 Scan
