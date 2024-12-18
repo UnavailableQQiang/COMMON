@@ -58,8 +58,31 @@ Remote Dictionary Service
 
 ### 2.1 分布式锁
 
-2.2 延时队列
-2.3 位图
+### 2.2 延时队列
+
+### 2.3 位图
+
+2.3.1 位图不是特殊的数据结构，它的内容其实就是普通的字符串，也就是byte数组。
+
+2.3.2 可以使用普通的get/set直接获取和设置整个位图的内容，也可以使用位图操作getbit/setbit等将byte数组看成[位数组]来处理。
+
+2.3.3 位数组的顺序和字符的位顺序是相反的
+![image](https://github.com/user-attachments/assets/4647e35c-cabb-4f14-b363-1699eca60997)
+
+2.3.4 bitcount用来统计指定字符范围内1的个数，全量计数：bitcount key，指定范围（从第1个字符到第2个字符）计数：bitcount key 0 1。
+
+2.3.5 bitpos用来查找指定字符范围内出现的第一个0或1，全量查找第一个0：bitpos key 0，全量查找第一个1：bitpos key 1，指定范围（从第1个字符到第3个字符）查找第一个0：bitpos key 0 0 2。
+
+2.3.6
+bitfield key get u4 2 从第3位开始，取4位，结果是无符号数
+bitfield key get i4 0 从第1位开始，取4位，结果是有符号数
+bitfield key set u8 8 97 从第9位开始，将连续8位用无符号数97替换
+bitfield key incrby u4 3 1 从第4位开始，取4位无符号数+1
+
+2.3.7
+![image](https://github.com/user-attachments/assets/829b1faf-11be-4c81-a44f-cdcf31886b13)
+
+
 2.4 HyperLogLog
 2.5 布隆过滤器
 2.6 简单限流
