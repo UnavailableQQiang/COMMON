@@ -75,8 +75,11 @@ Remote Dictionary Service
 
 2.3.6
 bitfield key get u4 2 从第3位开始，取4位，结果是无符号数
+
 bitfield key get i4 0 从第1位开始，取4位，结果是有符号数
+
 bitfield key set u8 8 97 从第9位开始，将连续8位用无符号数97替换
+
 bitfield key incrby u4 3 1 从第4位开始，取4位无符号数+1
 
 2.3.7
