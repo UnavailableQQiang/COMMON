@@ -46,6 +46,7 @@ Remote Dictionary Service
 1.5.1 类似于Java的SortedSet和HashMap的结合体，一方面他是一个set，保证了内部value的唯一性，另一方面它可以给每个value赋予一个score，代表这个value的排序权重。它的内部实现用的是跳跃列表的数据结构。
 
 1.5.2
+
 ![image](https://github.com/user-attachments/assets/067d33c5-1296-4f83-99f4-889e0af157e3)
 
 ### 1.6 容器性数据结构的通用规则
@@ -67,6 +68,7 @@ Remote Dictionary Service
 2.3.2 可以使用普通的get/set直接获取和设置整个位图的内容，也可以使用位图操作getbit/setbit等将byte数组看成[位数组]来处理。
 
 2.3.3 位数组的顺序和字符的位顺序是相反的
+
 ![image](https://github.com/user-attachments/assets/4647e35c-cabb-4f14-b363-1699eca60997)
 
 2.3.4 bitcount用来统计指定字符范围内1的个数，全量计数：bitcount key，指定范围（从第1个字符到第2个字符）计数：bitcount key 0 1。
@@ -74,6 +76,7 @@ Remote Dictionary Service
 2.3.5 bitpos用来查找指定字符范围内出现的第一个0或1，全量查找第一个0：bitpos key 0，全量查找第一个1：bitpos key 1，指定范围（从第1个字符到第3个字符）查找第一个0：bitpos key 0 0 2。
 
 2.3.6
+
 bitfield key get u4 2 从第3位开始，取4位，结果是无符号数
 
 bitfield key get i4 0 从第1位开始，取4位，结果是有符号数
@@ -83,6 +86,7 @@ bitfield key set u8 8 97 从第9位开始，将连续8位用无符号数97替换
 bitfield key incrby u4 3 1 从第4位开始，取4位无符号数+1
 
 2.3.7
+
 ![image](https://github.com/user-attachments/assets/829b1faf-11be-4c81-a44f-cdcf31886b13)
 
 
