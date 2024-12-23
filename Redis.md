@@ -89,9 +89,12 @@ bitfield key incrby u4 3 1 从第4位开始，取4位无符号数+1
 
 ![image](https://github.com/user-attachments/assets/829b1faf-11be-4c81-a44f-cdcf31886b13)
 
+### 2.4 HyperLogLog
 
-2.4 HyperLogLog
-2.5 布隆过滤器
+### 2.5 布隆过滤器
+
+2.5.1 指令集：bf.add/bf.madd、bf.exists/bf.mexists
+
 2.6 简单限流
 2.7 漏斗限流
 2.8 GeoHash
